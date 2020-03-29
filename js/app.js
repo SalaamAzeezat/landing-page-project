@@ -1,63 +1,42 @@
-/**
- * 
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- * 
- * Dependencies: None
- * 
- * JS Version: ES2015/ES6
- * 
- * JS Standard: ESlint
- * 
-*/
+//Global Variables
+const nav = document.querySelector('#navbar__list');
+const sec = document.querySelectorAll('section');
 
-/**
- * Define Global Variables
- * 
-*/
-
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
-
-
-
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
-*/
-
-// build the nav
-const newElement =document.createElement('li'); 
-for(let I = 1; I <=3; I++) { 
-         const anchorElement = document.createElement('a');
-         anchorElement.innerHTML = 'section_1'
-        newElement.appendChild(anchorElement); 
+//Navigation Menu
+for (let i = 0; i < sec.length; i++) {
+  let newElement = document.createElement('li');
+  let anchorElement = document.createElement('a');
+  anchorElement.innerHTML = sec[i].getAttribute('data-nav');
+  anchorElement.setAttribute('data-section', sec[i].getAttribute('id'));
+//Active-class 
+  anchorElement.addEventListener('click', function(){
+      let current = document.getElementsByClassName('your-active-class');
+      for (let j = 0; j < sec.length; j++) {
+        sec[j].classList.remove('your-active-class');
+      }
+      let id = anchorElement.getAttribute('data-section');
+      document.getElementById(id).classList.add('your-active-class');    
+    }
+  );
+  //Active Navigation Links
+  let anchor = document.querySelectorAll('.menu__link');
+for (let a = 0; a < anchor.length; a++) {
+  anchor[a].onclick = function() {
+    let c = 0;
+    while (c < anchor.length) {
+      anchor[c++].classList.remove('your-active-class');
+    }
+    anchor[a].classList.add('your-active-class');
+  };
 }
-const navBar = document.getElementById('#navbar_list');
-navBar.appendChild(newElement);
-document.body.append(navBar);
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-
-
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
+    
+  newElement.classList.add('navbar__menu');
+  anchorElement.classList.add('menu__link');
+  newElement.appendChild(anchorElement);
+  nav.appendChild(newElement);
+}
+//scroll
+document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+//Anchor active state on click
 
 
