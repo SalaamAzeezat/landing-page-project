@@ -18,8 +18,8 @@ for (let i = 0; i < sec.length; i++) {
       document.getElementById(id).classList.add('your-active-class');    
     }
   );
-  //Active Navigation Links
-  let anchor = document.querySelectorAll('.menu__link');
+//Active Navigation Links
+ let anchor = document.querySelectorAll('.menu__link');
 for (let a = 0; a < anchor.length; a++) {
   anchor[a].onclick = function() {
     let c = 0;
@@ -29,14 +29,13 @@ for (let a = 0; a < anchor.length; a++) {
     anchor[a].classList.add('your-active-class');
   };
 }
-    
   newElement.classList.add('navbar__menu');
   anchorElement.classList.add('menu__link');
   newElement.appendChild(anchorElement);
   nav.appendChild(newElement);
 }
-//scroll
+//scroll to appropriate section
 document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
-//Anchor active state on click
+
 
 
