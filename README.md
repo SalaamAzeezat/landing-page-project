@@ -33,4 +33,4 @@ Here is where the functionality happens. The navigation menu was dynamically bui
 
 
 # Launch
-To open this file, simply clone the repository and open the index.html file in the browser.
+To open this file, simply clone or download the repository file and open the index.html file in the browser.
