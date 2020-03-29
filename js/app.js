@@ -15,9 +15,12 @@ for (let i = 0; i < sec.length; i++) {
         sec[j].classList.remove('your-active-class');
       }
       let id = anchorElement.getAttribute('data-section');
-      document.getElementById(id).classList.add('your-active-class');    
+      document.getElementById(id).classList.add('your-active-class'); 
+      //scroll to appropriate section
+      document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});   
     }
   );
+
 //Active Navigation Links
  let anchor = document.querySelectorAll('.menu__link');
 for (let a = 0; a < anchor.length; a++) {
@@ -29,13 +32,13 @@ for (let a = 0; a < anchor.length; a++) {
     anchor[a].classList.add('your-active-class');
   };
 }
+
   newElement.classList.add('navbar__menu');
   anchorElement.classList.add('menu__link');
   newElement.appendChild(anchorElement);
   nav.appendChild(newElement);
 }
-//scroll to appropriate section
-document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+
 
 
 
