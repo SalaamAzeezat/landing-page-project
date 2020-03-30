@@ -16,22 +16,18 @@ for (let i = 0; i < sec.length; i++) {
       }
       let id = anchorElement.getAttribute('data-section');
       document.getElementById(id).classList.add('your-active-class'); 
-      //scroll to appropriate section
+    //scroll to appropriate section
       document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});   
     }
   );
 
 //Active Navigation Links
- let anchor = document.querySelectorAll('.menu__link');
-for (let a = 0; a < anchor.length; a++) {
-  anchor[a].onclick = function() {
-    let c = 0;
-    while (c < anchor.length) {
-      anchor[c++].classList.remove('your-active-class');
-    }
-    anchor[a].classList.add('your-active-class');
-  };
-}
+ $(document).ready(function(){
+   $('ul li a').click(function(){
+     $('li a').removeClass("active");
+     $(this).addClass("active");
+   });
+ });
 
   newElement.classList.add('navbar__menu');
   anchorElement.classList.add('menu__link');
